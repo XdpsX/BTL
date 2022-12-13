@@ -1,0 +1,24 @@
+.platforms-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+
+  .platform-btn,
+  .platform-btn:link,
+  .platform-btn:visited {
+    border: 1px solid var(--color-white);
+    background-color: transparent;
+    border-radius: 3px;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+
+    & > svg {
+      fill: var(--color-white);
+    }
+  }
+
+  .platform--active {
+    background-color: var(--color-primary);
+  }
+}

@@ -1,0 +1,155 @@
+.nav-secondary {
+  background-color: var(--color-black);
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem 1.6rem;
+
+  height: 9rem;
+  position: fixed;
+  top: 7rem;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.4s;
+
+  @include tab-port {
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--color-primary);
+    padding: 0 1.6rem;
+
+    height: 5rem;
+  }
+
+  &__list {
+    list-style: none;
+    font-size: 2rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 5.4rem;
+
+    @include tab-port {
+      width: 100%;
+      font-size: 1.8rem;
+      background-color: var(--color-primary);
+      align-items: stretch;
+      gap: 1.4rem;
+      padding: 1.2rem 2.4rem;
+      border-top: solid 1px var(--color-white);
+
+      position: absolute;
+      left: 0;
+      top: 4rem;
+
+      transform: scaleY(0);
+      visibility: hidden;
+      transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      transform-origin: top;
+    }
+
+    @include tab-port {
+      flex-direction: column;
+    }
+  }
+  &__link img {
+    max-height: 6.5rem;
+    transition: transform 0.2s;
+
+    @include tab-port {
+      display: none;
+    }
+  }
+  &__item--logo:hover &__link img {
+    transform: scale(1.05);
+  }
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: var(--color-white);
+      text-transform: uppercase;
+      transition: all 0.3s;
+      position: relative;
+
+      @include tab-port {
+        text-transform: none;
+        opacity: 0.8;
+      }
+    }
+
+    &:hover:not(.nav-secondary__link--active) {
+      color: var(--color-primary);
+
+      @include tab-port {
+        color: var(--color-white);
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      @include tab-port {
+        opacity: 1;
+      }
+    }
+  }
+
+  // This line in bottom of nav link -> appear when we scroll to specific section (using js)
+  &__link--active::after {
+    content: "";
+    display: block;
+    background-image: url("https://static.bandainamcoent.eu/high/elden-ring/elden-ring/00-page-setup/elden-ring-border-leaf.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 8px;
+    position: absolute;
+    left: 0;
+    bottom: -11px;
+
+    @include tab-port {
+      display: none;
+    }
+  }
+
+  &__btn-toggle {
+    border: none;
+    background-color: transparent;
+    color: var(--color-white);
+    text-transform: uppercase;
+    cursor: pointer;
+
+    display: none;
+    @include tab-port {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    &::after {
+      content: "\27A7";
+      display: inline-block;
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+  }
+
+  &__btn-toggle.open + &__list {
+    visibility: visible;
+    transform: scaleY(1);
+  }
+}
+
+.nav-secondary--fake {
+  height: 9rem;
+
+  @include tab-port {
+    height: 5rem;
+  }
+}
+
+.js-nav-secondary--top {
+  transform: translateY(-7rem);
+}

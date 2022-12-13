@@ -1,0 +1,89 @@
+.system {
+  padding: 9.6rem;
+
+  @include tab-land {
+    padding: 9.6rem 6.4rem;
+  }
+
+  @include tab-port {
+    padding: 6.4rem 3.2rem;
+  }
+
+  &__tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3.5rem;
+    margin-top: 3.6rem;
+
+    @include tab-port-smaller {
+      grid-gap: 0;
+    }
+  }
+
+  &__tab {
+    border: none;
+    background-color: transparent;
+    color: var(--color-white);
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 1.6rem;
+    transition: all 0.3s;
+
+    @include tab-port-smaller {
+      text-align: center;
+      font-size: 2.4rem;
+      opacity: 0.7;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px solid currentColor;
+      cursor: pointer;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3.5rem;
+
+    @include tab-port-smaller {
+      grid-template-columns: 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+  &__details {
+    color: var(--color-white);
+    border: 1px solid currentColor;
+    padding: 2rem 3.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    @include tab-land {
+      padding: 2rem 3rem;
+    }
+
+    @include tab-port {
+      padding: 1rem 2rem;
+    }
+    @include tab-port-smaller {
+      border: 1px solid transparent;
+      transition: all 0.4s;
+    }
+
+    @include phone {
+      font-size: 1.5rem;
+    }
+    &--recommended {
+      @include tab-port-smaller {
+        position: absolute;
+        width: 100%;
+      }
+    }
+    ul {
+      margin-bottom: 1.2rem;
+    }
+  }
+}

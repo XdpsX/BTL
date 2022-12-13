@@ -1,0 +1,120 @@
+.card {
+  box-shadow: var(--shadow);
+  border-radius: 5px;
+  overflow: hidden;
+
+  &__image-container {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    background-image: url(https://static.bandainamcoent.eu/high/elden-ring/elden-ring/00-page-setup/elden-ring-retailers-background.jpg);
+
+    padding: 3.6rem;
+
+    @include tab-land {
+      padding: 3.2rem 2rem;
+    }
+  }
+
+  &__cta {
+    height: 10.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6rem;
+    margin: 3rem 0;
+    text-transform: uppercase;
+
+    @include tab-port {
+      padding: 0 1.6rem;
+    }
+  }
+
+  &__btn {
+    padding: 1.2rem 2.8rem 1rem 1.5rem;
+    gap: 0.7rem;
+
+    @include tab-land {
+      padding: 1rem 0;
+      gap: 0;
+    }
+
+    @include tab-port {
+      padding: 1.2rem 0;
+    }
+  }
+
+  &__btn-toggle {
+    background-color: transparent;
+    color: var(--color-white);
+    font-size: 1.6rem;
+
+    padding-bottom: 0.5rem;
+    border: none;
+    border-bottom: 1px solid currentColor;
+    cursor: pointer;
+    transition: border-color 0.3s;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tab-port {
+      font-size: 1.8rem;
+    }
+
+    &::after {
+      content: "+";
+      display: inline-block;
+      font-size: 2.4rem;
+    }
+  }
+
+  &__description {
+    color: var(--color-white);
+    font-size: 1.4rem;
+    line-height: 1.3;
+
+    transition: visibility, max-height;
+    transition-duration: 0.3s;
+
+    max-height: 0;
+    visibility: hidden;
+
+    @include tab-port {
+      font-size: 1.6rem;
+    }
+
+    & > ul {
+      list-style: none;
+    }
+
+    & > :first-child {
+      margin-top: 1.6rem;
+    }
+    & > *:not(:last-child) {
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  // FUNCTIONALITY
+  &__btn-toggle.open {
+    border-color: transparent; //set color de transition co the apply
+
+    &::after {
+      content: "-";
+    }
+  }
+  &__btn-toggle.open + &__description {
+    max-height: 1000px;
+    visibility: visible;
+  }
+}
+
+.js-cards--active {
+  display: grid;
+}

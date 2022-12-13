@@ -1,0 +1,99 @@
+.shop {
+  padding: 4.8rem 9.6rem;
+
+  @include tab-land {
+    padding: 4.8rem 7.6rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3.2rem;
+
+    @include tab-port-smaller {
+      flex-direction: column;
+      gap: 4rem;
+      align-items: flex-start;
+      margin-bottom: 5.6rem;
+    }
+  }
+  &__heading {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 8.6rem;
+      height: 8.6rem;
+      background-color: var(--color-white);
+      -webkit-mask-image: url(https://en.bandainamcoent.eu/themes/custom/bne_main/dist/images/shopping/shoppingbag_white.svg);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+      opacity: 0.3;
+
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__country-container {
+    color: var(--color-white);
+
+    & > span {
+      font-size: 1.2rem;
+      margin-right: 1.2rem;
+      font-weight: 600;
+
+      @include tab-port {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &__sub-heading {
+    color: var(--color-white);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__content {
+    max-width: 98rem;
+    margin: 8rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 3.6rem;
+    align-items: start;
+
+    display: none;
+
+    @include tab-port {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 5rem;
+      row-gap: 5rem;
+      padding: 0 4.8rem;
+    }
+
+    @include tab-port-smaller {
+      max-width: 50rem;
+      grid-template-columns: 1fr;
+    }
+
+    @include phone-smaller {
+      padding: 0;
+    }
+  }
+
+  &__footer img {
+    width: 60%;
+
+    @include tab-land {
+      width: 80%;
+    }
+    @include tab-port-smaller {
+      width: 90%;
+    }
+  }
+}

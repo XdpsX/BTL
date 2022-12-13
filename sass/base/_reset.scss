@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  @include tab-port {
+    font-size: 56.25%;
+  }
+  @include phone {
+    font-size: 50%;
+  }
+}
+
+strong {
+  font-weight: 800;
+
+  @include tab-port {
+    font-size: 1.8rem;
+  }
+}

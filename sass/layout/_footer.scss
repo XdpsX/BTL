@@ -1,0 +1,246 @@
+.footer {
+  &__part {
+    color: var(--color-white);
+    padding: 3.6rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include tab-port {
+      flex-direction: column;
+      gap: 2.4rem;
+      padding: 3.6rem 1.8rem;
+    }
+
+    &--top {
+      background-color: var(--color-black);
+      align-items: flex-start;
+    }
+
+    &--bottom {
+      background-color: var(--color-secondary);
+      align-items: center;
+
+      @include tab-port {
+        align-items: flex-start;
+      }
+    }
+  }
+
+  // FOOTER TOP
+  &__logo {
+    fill: var(--color-white);
+    width: 100%;
+
+    @include phone {
+      width: 80%;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    font-size: 1.8rem;
+  }
+  &__item {
+    padding: 0.5rem 0;
+
+    @include tab-port {
+      padding: 0.3rem 0;
+    }
+  }
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.3s;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__navs-external {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include tab-port {
+      gap: 3.6rem;
+    }
+    @include phone {
+      gap: 5rem;
+    }
+  }
+  // Footer Actions
+  &__actions {
+    &-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2.8rem;
+
+      @include tab-port {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2rem;
+      }
+    }
+    &-link {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        padding: 0.7rem 0;
+
+        transition: color 0.4s;
+        position: relative;
+
+        @include tab-port {
+          font-size: 1.4rem;
+        }
+      }
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 1px;
+        background-color: var(--color-white);
+
+        transition: width 0.4s;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+
+      &:hover {
+        color: var(--color-secondary);
+      }
+      &:hover::after {
+        width: 30%;
+        // transform: scaleX(0.33);
+      }
+    }
+    &-btn {
+      border: none;
+      background-color: transparent;
+      color: inherit;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      line-height: inherit;
+      cursor: pointer;
+
+      display: flex;
+      gap: 1.6rem;
+
+      @include tab-port {
+        margin-top: 1rem;
+      }
+    }
+    &-language {
+      color: var(--color-secondary);
+      transition: color 0.3s;
+
+      display: flex;
+      align-items: center;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 1px;
+        background-color: currentColor;
+      }
+      &::before {
+        transform: rotate(45deg);
+        order: 1;
+        margin-left: 3px;
+      }
+
+      &::after {
+        transform: rotate(135deg);
+        order: 2;
+        margin-left: -1px;
+      }
+    }
+
+    &-btn:hover &-language {
+      color: var(--color-white);
+    }
+  }
+  // Footer Socials
+  &__socials {
+    &-nav {
+      margin-left: auto;
+
+      @include tab-port {
+        margin-left: 0;
+      }
+    }
+    &-list {
+      list-style: none;
+      display: flex;
+      gap: 5rem;
+
+      @include tab-port {
+        justify-content: space-between;
+      }
+    }
+
+    &-link svg {
+      fill: var(--color-white);
+      width: 2.8rem;
+      height: 2.8rem;
+      transition: fill 0.3s;
+    }
+
+    &-link:hover svg {
+      fill: var(--color-secondary);
+    }
+  }
+
+  // FOOTER BOTTOM
+  &__copyright {
+    font-size: 1.4rem;
+
+    @include tab-port {
+      order: 1;
+    }
+  }
+  // Footer Legals
+  &__legals {
+    &-list {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      text-align: center;
+
+      @include tab-port {
+        flex-direction: column;
+        text-align: left;
+        gap: 1.2rem;
+      }
+    }
+
+    &-link {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        font-size: 1.3rem;
+        color: inherit;
+
+        transition: opacity 0.3s;
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

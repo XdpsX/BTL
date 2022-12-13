@@ -1,0 +1,60 @@
+.button {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: inherit;
+  border-radius: 5px;
+  transition: all 0.3s;
+  text-transform: inherit;
+}
+
+.btn {
+  @extend .button;
+
+  &--shop {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-white);
+    padding: 1.2rem 6rem 1rem 1.5rem;
+
+    @include flexCenter;
+    gap: 2.7rem;
+
+    &:hover {
+      background-color: transparent;
+      color: var(--color-primary);
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 2.4rem;
+      height: 2.4rem;
+      background-color: currentColor;
+      -webkit-mask-image: url(https://en.bandainamcoent.eu/themes/custom/bne_main/dist/images/shopping/shoppingbag_white.svg);
+      mask-image: url(https://en.bandainamcoent.eu/themes/custom/bne_main/dist/images/shopping/shoppingbag_white.svg);
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: 100%;
+      mask-size: 100%;
+      margin-right: 1.2rem;
+    }
+  }
+
+  &--retailer {
+    color: var(--color-white);
+    width: 100%;
+    padding: 1.3rem 4rem;
+    background-color: transparent;
+    border: 1px solid currentColor;
+
+    &:hover {
+      color: #455a64;
+    }
+  }
+}
+
+.btn:link, .btn:visited {
+  @extend .button;
+ 
+  text-decoration: none;
+}

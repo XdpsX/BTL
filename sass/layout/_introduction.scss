@@ -1,0 +1,147 @@
+.introduction {
+  color: var(--color-white);
+  margin-top: 9.6rem;
+
+  &__release,
+  &__genres,
+  &__dev {
+    display: inline-block;
+    font-size: 1.3rem;
+    margin: 0 1.2rem;
+
+    @include tab-port {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__label {
+    color: var(--color-primary);
+  }
+
+  &__press-kit {
+    margin-top: 1.4rem;
+    a {
+      &:link,
+      &:visited {
+        font-size: 1.3rem;
+        color: inherit;
+        padding-bottom: 0;
+        text-decoration: underline;
+
+        @include tab-port {
+          font-size: 1.8rem;
+        }
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    gap: 3rem;
+    margin: 7.6rem auto 4.8rem;
+    align-items: flex-start;
+
+    @media (max-width: 1300px) {
+      padding: 0 3.2rem;
+      gap: 5.6rem;
+    }
+
+    @include tab-port {
+      flex-direction: column;
+      padding: 0 6.4rem;
+    }
+  }
+
+  &__text-box {
+    flex: 0 0 40%;
+  }
+  &__description {
+    margin-bottom: 2.4rem;
+  }
+  &__paragraph {
+    font-weight: 600;
+
+    @include tab-port {
+      font-size: 1.8rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1.8rem;
+
+      @include tab-port {
+        margin-bottom: 1.2rem;
+      }
+    }
+  }
+  &__awards {
+    text-align: center;
+    & img {
+      width: 100%;
+
+      @include tab-port {
+        width: 60%;
+      }
+
+      @include tab-port-smaller {
+        width: 90%;
+      }
+    }
+  }
+
+  &__video-box {
+    flex: 1;
+    position: relative;
+
+    &::before,
+    &::after {
+      background: var(--er-border) no-repeat 50%/100%;
+      content: "";
+      height: 100vh;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      // left: 0;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    &::before {
+      transform: translateY(-50%);
+    }
+    &::after {
+      bottom: 0;
+      top: unset;
+      transform: translateY(50%) rotate(180deg);
+    }
+  }
+  &__video {
+    width: 100%;
+    display: block; //de video height = parent's height
+  }
+
+  &__cta {
+    & > span {
+      font-size: 1.2rem;
+
+      @include tab-port {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__footer img {
+    height: 100%;
+
+    @include tab-land {
+      width: 80%;
+    }
+    @include tab-port-smaller {
+      width: 90%;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin big-desktop {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+@mixin tab-land {
+  @media (max-width: 1128px) {
+    @content;
+  }
+}
+
+@mixin tab-port {
+  @media (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin tab-port-smaller {
+  @media (max-width: 780px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: 550px) {
+    @content;
+  }
+}
+
+@mixin phone-smaller {
+  @media (max-width: 440px) {
+    @content;
+  }
+}

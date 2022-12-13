@@ -1,0 +1,115 @@
+.slideshow {
+  position: relative;
+
+  &__slide {
+    padding: 1rem 2rem;
+    position: relative;
+
+    @include tab-land {
+      padding: 1rem;
+    }
+  }
+
+  &__image {
+    box-shadow: var(--shadow);
+    margin-bottom: 6rem;
+    transform: scale(0.6);
+    padding: 4rem 1rem;
+    transition: all 0.3s;
+
+    @include tab-land {
+      transform: scale(0.7);
+      padding: 2rem 1rem;
+    }
+
+    @include tab-port {
+      transform: scale(0.6);
+      padding: 2rem;
+    }
+
+    img {
+      width: 100%;
+
+      @include phone {
+        width: 60%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__text {
+    color: var(--color-white);
+    width: 40vw;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+
+    @include tab-land {
+      width: 50vw;
+      transform: translateX(-50%) translateY(3rem);
+    }
+    @include phone {
+      width: 70vw;
+    }
+  }
+
+  &__character-role {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+  .slick-current > &__slide {
+    transform: translateY(3rem);
+  }
+  .slick-current > &__slide &__image {
+    transform: scale(1.2);
+    box-shadow: none;
+
+    @include tab-land {
+      transform: scale(1.5);
+    }
+
+    @include tab-port {
+      transform: scale(1.2);
+    }
+
+    @include phone {
+      transform: scale(1);
+    }
+  }
+  .slick-current &__text {
+    display: block;
+  }
+}
+
+.slick-arrow {
+  border: none;
+  background-color: var(--color-primary);
+  width: 5rem;
+  height: 5rem;
+
+  -webkit-mask-image: url(https://en.bandainamcoent.eu/themes/custom/bne_main/dist/images/carousel/Carousel_white_title.svg);
+  -webkit-mask-repeat: no-repeat;
+
+  text-indent: -999px;
+
+  -webkit-mask-size: 35%;
+  -webkit-mask-position: center center;
+  border-radius: 50%;
+
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.slick-prev {
+  transform: rotate(180deg);
+  left: 20rem;
+}
+
+.slick-next {
+  right: 20rem;
+}

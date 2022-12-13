@@ -1,0 +1,22 @@
+.overview {
+  position: relative;
+
+  &__logo {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    z-index: 10;
+
+    @include tab-port {
+      width: 80vw;
+    }
+  }
+  &__logo-img {
+    width: 100%;
+    height: auto;
+  }
+  &__video {
+    width: 100%;
+  }
+}

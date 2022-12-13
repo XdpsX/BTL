@@ -1,0 +1,31 @@
+.characters {
+  background-image: url(../../img/background/background--characters.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+  padding: 6.4rem 0 12.8rem 0;
+  position: relative;
+
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 100vh;
+    width: 100%;
+    // background-image: var(--er-border);
+    // background-repeat: no-repeat;
+    // background-size: 100%;
+    // background-position-x: 50%;
+    // background-position-y: center;
+    background: var(--er-border) no-repeat 50% / 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
