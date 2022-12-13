@@ -1,7 +1,7 @@
 {
   "name": "elden-ring",
   "version": "1.0.0",
-  "description": "Landing page for elden-ring",
+  "description": "Landing page for elden ring",
   "main": "index.js",
   "scripts": {
     "watch:sass": "node-sass sass/main.scss css/style.css -w",
@@ -16,11 +16,10 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "concat": "^1.0.3",
     "node-sass": "^7.0.3",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^10.0.0"
-  },
-  "dependencies": {
-    "live-server": "^1.2.2"
+    "postcss": "^8.4.20",
+    "postcss-cli": "^10.1.0"
   }
 }
