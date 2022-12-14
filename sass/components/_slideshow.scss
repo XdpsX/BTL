@@ -1,4 +1,5 @@
 .slideshow {
+  padding-bottom: 6rem;
   position: relative;
   overflow: hidden;
 
@@ -101,7 +102,7 @@
   border-radius: 50%;
 
   position: absolute;
-  bottom: 0;
+  bottom: 5rem;
   z-index: 10;
   cursor: pointer;
 }
@@ -109,8 +110,15 @@
 .slick-prev {
   transform: rotate(180deg);
   left: 20rem;
+
+  @include tab-land {
+    left: 10rem;
+  }
 }
 
 .slick-next {
   right: 20rem;
+  @include tab-land {
+    right: 10rem;
+  }
 }

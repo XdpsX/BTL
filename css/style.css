@@ -1064,6 +1064,7 @@ body {
     background-color: var(--color-primary); }
 
 .slideshow {
+  padding-bottom: 6rem;
   position: relative;
   overflow: hidden; }
   .slideshow__slide {
@@ -1140,16 +1141,22 @@ body {
   -webkit-mask-position: center center;
   border-radius: 50%;
   position: absolute;
-  bottom: 0;
+  bottom: 5rem;
   z-index: 10;
   cursor: pointer; }
 
 .slick-prev {
   transform: rotate(180deg);
   left: 20rem; }
+  @media (max-width: 1128px) {
+    .slick-prev {
+      left: 10rem; } }
 
 .slick-next {
   right: 20rem; }
+  @media (max-width: 1128px) {
+    .slick-next {
+      right: 10rem; } }
 
 .country {
   background: transparent;
