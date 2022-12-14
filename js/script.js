@@ -161,8 +161,8 @@ introPlatformsList.addEventListener('click', function (e) {
   const platform = e.target.closest(".introduction__platform-operation");
 
   if (!platform) return;
-  // scrollToSection(shopSubHeading);
-  scrollToSection(shopSection);
+  scrollToSection(shopSubHeading);
+  // scrollToSection(shopSection);
 
   setTimeout(() => {
     const target = document.querySelector(platform.getAttribute("href"));

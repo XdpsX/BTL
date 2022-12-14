@@ -1,5 +1,5 @@
 .characters {
-  background-image: url(../../img/background/background--characters.webp);
+  background-image: url("../img/background/background-characters.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -7,8 +7,6 @@
 
   padding: 6.4rem 0 12.8rem 0;
   position: relative;
-
-  
 
   &::before {
     content: "";

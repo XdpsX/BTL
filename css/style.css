@@ -565,7 +565,7 @@ body {
         width: 90%; } }
 
 .feature {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../img/background/background--features2.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background/background-features2.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -640,7 +640,7 @@ body {
         margin-right: 0; } }
 
 .characters {
-  background-image: url(../../img/background/background--characters.webp);
+  background-image: url("../img/background/background-characters.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -991,7 +991,7 @@ body {
   opacity: 0.7; }
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../img/background/background--page.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background/background-page.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
