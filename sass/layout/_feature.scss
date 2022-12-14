@@ -30,7 +30,7 @@
   &__img {
     flex: 0 0 50%;
     @include tab-port-smaller {
-      flex: 0 0 100%;
+      width: 100%;
       text-align: center;
     }
 
