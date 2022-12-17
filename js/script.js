@@ -222,7 +222,10 @@ const lazyObserver = new IntersectionObserver(lazyLoading, {
 });
 
 lazyImgs.forEach(img => {
-  lazyObserver.observe(img);
+  if (window.innerWidth > 1128) {
+    lazyObserver.observe(img);
+    img.classList.add("js-lazy-img");
+  }
 })
 /////////// Set year in footer's copyright ///////////
 const yearLabel = document.querySelector(".footer__year");
