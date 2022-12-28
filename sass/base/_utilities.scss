@@ -33,13 +33,18 @@
   margin-top: 4rem;
 }
 
-.js-loading {
+.loading-content {
   animation: loading 1s;
 }
 
 .section--hidden {
   opacity: 0.3;
   transform: translateY(8rem);
+
+  @include tab-port {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .js-reveal-section {
@@ -48,6 +53,10 @@
 
 .js-lazy-img {
   filter: blur(20px);
+
+  @include phone {
+    filter: blur(0);
+  }
 }
 .js-hidden {
   display: none;

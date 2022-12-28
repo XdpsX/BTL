@@ -126,10 +126,10 @@
       </div>
       <div class="overview__video-box">
         <video loop="" muted="" autoplay="" class="overview__video" data-loaded="true">
-          <source data-src="https://static.bandainamcoent.eu/video/elden-ring-header-animated.webm" type="video/webm"
-            src="https://static.bandainamcoent.eu/video/elden-ring-header-animated.webm" />
-          <source data-src="https://static.bandainamcoent.eu/video/elden-ring-header-animated.mp4" type="video/mp4"
-            src="https://static.bandainamcoent.eu/video/elden-ring-header-animated.mp4" />
+          <source type="video/webm" 
+          src="https://static.bandainamcoent.eu/video/elden-ring-header-animated.webm"/>
+          <source type="video/mp4"
+          src="https://static.bandainamcoent.eu/video/elden-ring-header-animated.mp4"/>
         </video>
       </div>
     </section>
@@ -263,10 +263,10 @@
           </div>
           <div class="introduction__video-box">
             <video class="introduction__video" muted="" playsinline="" autoplay="" loop="" data-loaded="true">
-              <source data-src="https://static.bandainamcoent.eu/video/elden-ring-autoplay-launch-trailer.webm"
-                type="video/webm" src="https://static.bandainamcoent.eu/video/elden-ring-autoplay-launch-trailer.webm">
-              <source data-src="https://static.bandainamcoent.eu/video/elden-ring-autoplay-launch-trailer.mp4"
-                type="video/mp4" src="https://static.bandainamcoent.eu/video/elden-ring-autoplay-launch-trailer.mp4">
+              <source type="video/webm" 
+              src="https://static.bandainamcoent.eu/video/elden-ring-autoplay-launch-trailer.webm">
+              <source type="video/mp4" 
+              src="https://static.bandainamcoent.eu/video/elden-ring-autoplay-launch-trailer.mp4">
             </video>
           </div>
         </div>
@@ -285,7 +285,9 @@
           <div class="feature__row view-row">
             <div class="feature__img">
               <img class="" src="./img/features/feature-1-small.webp"
-                data-src="./img/features/feature-1.webp" alt="Feature 1">
+                data-src-large="./img/features/feature-1.webp" 
+                data-src-md="./img/features/feature-1-medium.webp" 
+                alt="Feature 1">
             </div>
             <div class="faeture__description">
               <h3 class="feature__heading">A NEW FANTASY WORLD</h3>
@@ -302,7 +304,9 @@
           <div class="feature__row view-row">
             <div class="feature__img">
               <img class="" src="./img/features/feature-2-small.webp"
-                data-src="./img/features/feature-2.webp" alt="Feature 2">
+                data-src-large="./img/features/feature-2.webp" 
+                data-src-md="./img/features/feature-2-medium.webp"
+                alt="Feature 2">
             </div>
             <div class="faeture__description">
               <h3 class="feature__heading">WORLD EXPLORATION IN THE LANDS BETWEEN</h3>
@@ -319,7 +323,9 @@
           <div class="feature__row view-row">
             <div class="feature__img">
               <img class="" src="./img/features/feature-3-small.webp"
-                data-src="./img/features/feature-3.webp" alt="Feature 3">
+                data-src-large="./img/features/feature-3.webp" 
+                data-src-md="./img/features/feature-3-medium.webp"
+                alt="Feature 3">
             </div>
             <div class="faeture__description">
               <h3 class="feature__heading">GENRE-DEFINING GAMEPLAY</h3>
@@ -440,7 +446,7 @@
 
     <section class="shop js-section-to-line" id="shop">
 
-      <div class="shop__header">
+      <div class="shop__header js-reveal-section">
         <h2 class="heading-2 shop__heading">Shop now</h2>
         <div class="shop__country-container">
           <span>Select your country:</span>
@@ -530,7 +536,7 @@
         </div>
       </div>
       <div class="js-reveal-section">
-        <div class="shop__content cards--XboxSeries js-cards--active">
+        <div class="shop__content cards--XboxSeries js-cards--active loading-content">
           <div class="card">
             <div class="card__image-container">
               <img src="./img/shop/shop-image-1.webp" alt="Product 1">
@@ -633,7 +639,7 @@
             </div>
           </div>
         </div>
-        <div class="shop__content cards--PS5">
+        <div class="shop__content cards--PS5 loading-content">
           <div class="card">
             <div class="card__image-container">
               <img src="./img/shop/shop-image-2.webp" alt="Product 1">
@@ -736,7 +742,7 @@
             </div>
           </div>
         </div>
-        <div class="shop__content cards--PS4">
+        <div class="shop__content cards--PS4 loading-content">
           <div class="card">
             <div class="card__image-container">
               <img src="./img/shop/shop-image-3.webp" alt="Product 1">
@@ -839,7 +845,7 @@
             </div>
           </div>
         </div>
-        <div class="shop__content cards--PC">
+        <div class="shop__content cards--PC loading-content">
           <div class="card">
             <div class="card__image-container">
               <img src="./img/shop/shop-image-4.webp" alt="Product 1">
@@ -942,7 +948,7 @@
             </div>
           </div>
         </div>
-        <div class="shop__content cards--XboxOne">
+        <div class="shop__content cards--XboxOne loading-content">
           <div class="card">
             <div class="card__image-container">
               <img src="./img/shop/shop-image-5.webp" alt="Product 1">

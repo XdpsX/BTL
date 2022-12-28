@@ -112,18 +112,25 @@ body {
 .u-mt-medium {
   margin-top: 4rem; }
 
-.js-loading {
+.loading-content {
   animation: loading 1s; }
 
 .section--hidden {
   opacity: 0.3;
   transform: translateY(8rem); }
+  @media (max-width: 960px) {
+    .section--hidden {
+      opacity: 1;
+      transform: translateY(0); } }
 
 .js-reveal-section {
   transition: all 0.5s; }
 
 .js-lazy-img {
   filter: blur(20px); }
+  @media (max-width: 550px) {
+    .js-lazy-img {
+      filter: blur(0); } }
 
 .js-hidden {
   display: none; }
@@ -531,6 +538,9 @@ body {
   .introduction__video-box {
     flex: 1;
     position: relative; }
+    @media (max-width: 550px) {
+      .introduction__video-box {
+        display: none; } }
     .introduction__video-box::before, .introduction__video-box::after {
       background: var(--er-border) no-repeat 50%/100%;
       content: "";

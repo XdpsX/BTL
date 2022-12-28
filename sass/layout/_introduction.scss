@@ -96,6 +96,10 @@
     flex: 1;
     position: relative;
 
+    @include phone {
+      display: none;
+    }
+
     &::before,
     &::after {
       background: var(--er-border) no-repeat 50%/100%;

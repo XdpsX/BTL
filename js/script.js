@@ -1,4 +1,9 @@
-/////////// SLICK SLIDE for Slideshow Section ///////////
+const tabLandWidth = 1128;
+const tabPortWidth = 960;
+const smallerTabPortWidth = 760;
+const phoneWidth = 550;
+
+/////////// SLICK SLIDE for Slideshow in Characters Section ///////////
 $('.slideshow').slick({
   centerMode: true,
   centerPadding: '60px',
@@ -44,27 +49,32 @@ let prevScrollPos = window.scrollY;
 const showUpHeader = function () {
   let currScrollPos = window.scrollY;
 
-  // Scroll down
+  // When scrolling down
   if (currScrollPos > prevScrollPos) {
     header.classList.add("js-header--hidden");
     secondNav.classList.add("js-nav-secondary--top");
   }
-  // Scroll up
+  // When scrolling up
   if (currScrollPos < prevScrollPos) {
     header.classList.remove("js-header--hidden");
     secondNav.classList.remove("js-nav-secondary--top");
   }
 
-  prevScrollPos = currScrollPos
+  prevScrollPos = currScrollPos;
 }
+
+window.addEventListener("scroll", showUpHeader);
 
 /////////// SMOOTH SCROLL in Secondary Navigation ///////////
 const secondNavList = document.querySelector(".nav-secondary__list");
 
-// Scroll to specific section
+/**
+ * This function will scroll to specific section
+ * @param {*} section section that we want to scroll to
+ */
 const scrollToSection = function (section) {
   const sectionCoords = section.getBoundingClientRect();
-  const secondNavHeight = secondNav.offsetHeight; //because secondNav is sticky now -> minus its height when scroll
+  const secondNavHeight = secondNav.offsetHeight; //because secondNav is sticky -> minus its height when scroll
 
   window.scrollTo({
     left: sectionCoords.left + window.scrollX,
@@ -72,6 +82,7 @@ const scrollToSection = function (section) {
     behavior: "smooth",
   });
 }
+// Implement smooth scrolling for link in Nav Secondary Section
 secondNavList.addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -81,10 +92,9 @@ secondNavList.addEventListener("click", function (e) {
   const idSection = link.getAttribute("href");
   const section = document.querySelector(idSection);
 
-  // section.scrollIntoView({ behavior: "smooth" })
   scrollToSection(section);
 
-  // Close nav secondary in mobile
+  // In MOBILE, closing the Nav Second when click to link
   document.querySelector(".nav-secondary__btn-toggle").classList.remove("open")
 
 })
@@ -109,42 +119,48 @@ const lineSecondNavLink = function () {
       link.classList.add("nav-secondary__link--active");
   })
 }
+window.addEventListener('scroll', lineSecondNavLink);
 
-/////////// Shop button in Introduction section ///////////
+/////////// Add smooth scrolling for Shop button in Introduction section ///////////
 const btnCtaIntro = document.querySelector(".introduction__cta-btn");
 const shopSection = document.querySelector(".shop");
 
 btnCtaIntro.onclick = function () {
   scrollToSection(shopSection);
 }
-/////////// Tabbed Platform ///////////
+
+/////////// In Shop section, display corresponding Cards when click to platform  ///////////
 const platformsList = document.querySelector(".platform-operations-container");
 const allPlatformBtn = document.querySelectorAll(".platform-operation");
 const allCardsContainer = document.querySelectorAll(".shop__content");
 
-// Change Cards to corresponding platform 
+
+/**
+ * This function will display platform's cards
+ * @param {*} platform platform which we want its cards are displayed
+ */
 const tabToCards = function (platform) {
+  // Active platform
   allPlatformBtn.forEach(btn =>
     btn.classList.remove("platform--active")
   );
   platform.classList.add("platform--active");
-
+  
+  // Display cards
   allCardsContainer.forEach(container =>
     container.classList.remove("js-cards--active")
   );
-
-
   const cardContainer = document.querySelector(`.cards--${platform.dataset.platform}`);
   cardContainer.classList.add("js-cards--active");
-  cardContainer.classList.add("js-loading");
 
-  // Bad code :<
-  platformsList.classList.add("js-loading");
+  // Animation for platform list 
+  platformsList.classList.add("loading-content");
   setTimeout(() => {
-    platformsList.classList.remove("js-loading");
+    platformsList.classList.remove("loading-content");
   }, 1000)
 };
 
+// Implement display cards
 platformsList.addEventListener('click', function (e) {
   const platform = e.target.closest(".platform-operation");
 
@@ -152,7 +168,8 @@ platformsList.addEventListener('click', function (e) {
   tabToCards(platform);
 });
 
-/////////// Platform in Introduction ///////////
+/////////// Click to Platform in Introduction ///////////
+// Scroll to Shop section and display platform's cards
 const introPlatformsList = document.querySelector(".introduction__platforms-list");
 const shopSubHeading = document.querySelector(".shop__sub-heading");
 
@@ -162,16 +179,14 @@ introPlatformsList.addEventListener('click', function (e) {
 
   if (!platform) return;
   scrollToSection(shopSubHeading);
-  // scrollToSection(shopSection);
 
   setTimeout(() => {
     const target = document.querySelector(platform.getAttribute("href"));
     tabToCards(target);
-
   }, 1000);
 })
 
-/////////// Toggle item in Card ///////////
+/////////// Display card's content when click to Detail button ///////////
 const btnToggleList = document.querySelectorAll('.js-toggle');
 btnToggleList.forEach(btn => {
   btn.onclick = () => {
@@ -179,7 +194,7 @@ btnToggleList.forEach(btn => {
   }
 })
 
-/////////// Reveal Section ///////////
+/////////// Reveal Section  when scrolling///////////
 const allRevealSection = document.querySelectorAll(".js-reveal-section");
 const revealSection = function (entries, observer) {
   const [entry] = entries;
@@ -200,15 +215,22 @@ allRevealSection.forEach(section => {
   revealObserver.observe(section);
   // section.classList.add("section--hidden");
 });
-/////////// Lazy image ///////////
-const lazyImgs = document.querySelectorAll("img[data-src]");
+/////////// Lazy image in Features section///////////
+const lazyImgs = document.querySelectorAll("img[data-src-large]");
 
 const lazyLoading = function (entries, observer) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
 
   const img = entry.target;
-  img.src = img.dataset.src;
+  if(window.innerWidth < phoneWidth){
+    // observer.unobserve(img);
+    return;
+  }else if(window.innerWidth < tabPortWidth){
+    img.src = img.dataset.srcMd;
+  }else{
+    img.src = img.dataset.srcLarge;
+  }
   img.addEventListener("load", function () {
     img.classList.remove("js-lazy-img");
   });
@@ -222,25 +244,11 @@ const lazyObserver = new IntersectionObserver(lazyLoading, {
 });
 
 lazyImgs.forEach(img => {
-  if (window.innerWidth > 1128) {
-    lazyObserver.observe(img);
-    img.classList.add("js-lazy-img");
-  }
+  lazyObserver.observe(img);
+  img.classList.add("js-lazy-img");
 })
-/////////// Set year in footer's copyright ///////////
-const yearLabel = document.querySelector(".footer__year");
-const now = new Date();
-yearLabel.textContent = now.getFullYear();
 
-// ####When window scroll
-window.onscroll = function () {
-  showUpHeader();
-
-  lineSecondNavLink();
-}
-
-
-/////////// Main (Header) Nav toggle button in mobile ///////////
+/////////// Main (Header) Nav toggle button in Mobile ///////////
 const navCheckBox = document.querySelector(".header__nav-checkbox");
 const navBtn = document.querySelector(".header__nav-button");
 const mainNav = document.querySelector(".header__nav");
@@ -257,7 +265,7 @@ navBtn.addEventListener('click', () => {
   }
 });
 
-// SYSTEM
+/////////// SYSTEM section in MOBILE ///////////
 const allSystemDetails = document.querySelectorAll(".system__details");
 const btnMinimum = document.querySelector(".system__tab--mn");
 const btnRecommend = document.querySelector(".system__tab--rcm");
@@ -277,7 +285,7 @@ const destruct = () => {
   );
 }
 const handleSystemTabs = () => {
-  if (window.innerWidth < 780) {
+  if (window.innerWidth < smallerTabPortWidth) {
     init();
     btnMinimum.onclick = () => {
       goToDetailts(0);
@@ -295,3 +303,8 @@ const handleSystemTabs = () => {
 }
 window.addEventListener("resize", handleSystemTabs);
 window.addEventListener("load", handleSystemTabs);
+
+/////////// Set year in footer's copyright ///////////
+const yearLabel = document.querySelector(".footer__year");
+const now = new Date();
+yearLabel.textContent = now.getFullYear();
