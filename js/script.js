@@ -1,6 +1,6 @@
 const tabLandWidth = 1128;
 const tabPortWidth = 960;
-const smallerTabPortWidth = 760;
+const smallerTabPortWidth = 780;
 const phoneWidth = 550;
 
 /////////// SLICK SLIDE for Slideshow in Characters Section ///////////
@@ -285,7 +285,7 @@ const destruct = () => {
   );
 }
 const handleSystemTabs = () => {
-  if (window.innerWidth < smallerTabPortWidth) {
+  if (window.innerWidth <= smallerTabPortWidth) {
     init();
     btnMinimum.onclick = () => {
       goToDetailts(0);
