@@ -289,13 +289,13 @@ const handleSystemTabs = () => {
     init();
     btnMinimum.onclick = () => {
       goToDetailts(0);
-      btnMinimum.classList.toggle("system__tab--active");
-      btnRecommend.classList.toggle("system__tab--active");
+      btnMinimum.classList.add("system__tab--active");
+      btnRecommend.classList.remove("system__tab--active");
     }
     btnRecommend.onclick = () => {
       goToDetailts(1);
-      btnMinimum.classList.toggle("system__tab--active");
-      btnRecommend.classList.toggle("system__tab--active");
+      btnMinimum.classList.remove("system__tab--active");
+      btnRecommend.classList.add("system__tab--active");
     }
   } else {
     destruct();

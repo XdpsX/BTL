@@ -13,6 +13,10 @@
     padding: 6.4rem 6.4rem 9.6rem 6.4rem;
   }
 
+  @include phone {
+    padding: 6.4rem 3.2rem 9.6rem 3.2rem;
+  }
+
   &__row {
     display: flex;
     align-items: flex-start;

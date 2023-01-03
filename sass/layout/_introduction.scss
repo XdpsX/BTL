@@ -54,6 +54,10 @@
       flex-direction: column;
       padding: 0 6.4rem;
     }
+
+    @include phone {
+      padding: 0 3.2rem;
+    }
   }
 
   &__text-box {

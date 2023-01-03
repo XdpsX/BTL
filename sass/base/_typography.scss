@@ -22,9 +22,14 @@ body {
   color: var(--color-white);
   font-weight: 700;
   letter-spacing: -1px;
+  line-height: 1.1;
 
   @include tab-port {
     font-size: 4.2rem;
+  }
+
+  @include phone {
+    font-size: 3.6rem;
   }
 }
 .heading-3 {

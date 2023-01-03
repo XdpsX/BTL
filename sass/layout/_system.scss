@@ -39,6 +39,10 @@
       cursor: pointer;
     }
 
+    @include phone {
+      font-size: 2rem;
+    }
+
     &--active {
       opacity: 1;
     }
@@ -49,6 +53,7 @@
     grid-gap: 3.5rem;
 
     @include tab-port-smaller {
+      padding: 1rem 0;
       grid-template-columns: 1fr;
       position: relative;
       overflow: hidden;
